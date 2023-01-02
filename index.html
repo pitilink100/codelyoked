@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="prism (1).css">
+    <link rel="stylesheet" href="style.js">
+
+    <title>REVENGE</title>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <h1>#GROS</h1>
+        </nav>
+    </header>
+    <section class="section_accueil">
+        <div style=" display: block; margin: 0 auto;">
+            <img src="pngwing.com (1).png" alt="image" style="max-width: 90%; display: block; margin: 0 auto; padding-top: 4em;">
+        </div>
+        <div class="accueil">
+            <div class="accueil_button">
+                <button>Cours</button>
+            </div>
+            <div class="accueil_button">
+                <button>Corrigés</button>
+            </div>
+        </div>
+    </section>
+    <section class="exercice 3">
+        <div class="titre_exo">
+        <h1>Exercice 3</h1>
+        </div>
+        <div class="watibouton"><button onclick="toggleComments()">Afficher/Masquer les commentaires</button></div>
+        <div class="container">
+        <div class="box">
+            <div class="titre_box">
+                <h1>carre_1 :</h1>
+            </div>
+            <pre><code class="language-c">
+#include &lt;stdio.h&gt;    // inclu la bibiliothèque stdio.h qui permet d'executer certaines fonctions 
+
+/* on déclare en premier les fonctions qui vont être utilisées dans l'algo */
+
+void aff_ligne_carre_1(int, int); // déclare la fonction aff_ligne_carre_1 
+void carre_1(int); // déclare la fonction carre_1 (int = valeure entière)
+
+/* on définit ensuite les fonctions */
+
+void carre_1(int n) { // définit la fonction en donnant n comme valeur entière
+    int row = 0; // initialise la variable row à 0
+    while (row < n) { // (on vérifie qu'on a pas dépassé la dernière ligne)
+        aff_ligne_carre_1(n, row); // éxecute la fonction aff_ligne_carre_1 avec comme arguments n et row
+        row = row + 1; // on ajoute 1 à la variable row
+    }
+}
+
+void aff_ligne_carre_1(int n, int c) { // définit la fonction en donnant n et c comme valeurs entières
+    int col = 0; 
+    while (col < n) { // (on vérifie qu'on a pas dépassé la dernière colonne)
+        printf("%d", c); // printf("%d", ...) permet d'afficher une valeur entière (ici c)
+        col = col + 1; // (on ajoute 1 à la variable col)
+    }
+    putchar('\n'); // (on retourne à la ligne)
+}
+            </code></pre>
+        </div>
+        <div class="box">
+            <div class="titre_box">
+                <h1>exemples :</h1>
+            </div>
+                <pre><code class="language-c">
+int main(void) { 
+    carre_1(2);     /* affiche :
+                        00
+                        11
+                                    */
+    putchar('\n');
+    carre_1(3);     /* affiche :
+                        000
+                        111
+                        222
+                                    */
+    putchar('\n');
+    carre_1(4);     /* affiche :
+                        0000
+                        1111
+                        2222
+                        3333
+                                    */
+    return 0;
+    }
+    
+                </code></pre>
+        </div>
+        <div class="box">
+            <h1>carre_2 :</h1>
+                <pre><code class="language-c">
+#include &lt;stdio.h&gt;
+
+void aff_ligne_carre_2(int);
+void carre_2(int);
+
+void aff_ligne_carre_2(int n) {
+    int col = 0;
+    while (col < n){
+        putchar('0' + col); // putchar permet d'écrire un caractère mais la j'ai pas capté
+        col = col + 1;
+    }
+    putchar('\n');
+}
+    
+void carre_2(int n) {
+    int row = 0;
+    while (row < n) {
+        aff_ligne_carre_2(n);
+        row = row + 1;
+    }
+}
+            </code></pre>
+        </div>
+        <div class="box">
+            <h1>exemples :</h1>
+            <pre><code class="language-c">
+int main(void) {
+    carre_2(2);     /* affiche :
+                        01
+                        01
+                                    */
+putchar('\n');
+    carre_2(3);     /* affiche :
+                        012
+                        012
+                        012
+                                    */
+putchar('\n');
+    carre_2(4);     /* affiche :
+                        0123
+                        0123
+                        0123
+                        0123
+                                    */
+    return 0;
+    }
+                    
+                                </code></pre>
+        </div>
+        <div class="box">
+            <div class="titre_box">
+                <h1>triangle_1 :</h1>
+            </div>
+            <pre><code class="language-c">
+#include &lt;stdio.h&gt;
+
+void aff_ligne_carre_2(int);
+void triangle_1(int);
+
+void triangle_1(int n) {
+    int row = 0;
+    while (row < n) {
+        aff_ligne_carre_2(row + 1);
+        row = row + 1;
+    }
+}
+void aff_ligne_carre_2(int n) {
+    int col = 0;
+    while (col < n) {
+        putchar('0' + col); // pas compris pour le moment
+        col = col + 1;
+    }
+    putchar('\n');
+}
+            </code></pre>
+        </div>
+        <div class="box">
+            <div class="titre_box">
+                <h1>exemples :</h1>
+            </div>
+                <pre><code class="language-c">
+int main(void) {
+    triangle_1(2);     /* affiche :
+                        0
+                        01
+                                    */
+putchar('\n');
+    triangle_1(3);     /* affiche :
+                        0
+                        01
+                        012
+                                    */
+putchar('\n');
+    triangle_1(4);     /* affiche :
+                        0
+                        01
+                        012
+                        0123
+                                    */
+    return 0;
+    }
+    
+                </code></pre>
+        </div>
+        <div class="box">
+            <div class="titre_box">
+                <h1>triangle_2 :</h1>
+            </div>
+            <pre><code class="language-c">
+#include &lt;stdio.h&gt;
+
+void repeter(int, char);
+void triangle_2(int);
+
+void triangle_2(int n) {
+    int row = 0;
+    while(row < n) {
+        repeter(n-row-1, ' ');
+        repeter(row + 1, '*');
+        putchar('\n');
+        row = row + 1;
+    }
+}
+void repeter (int n, char c) {
+    int col = 0;
+    while(col < n) {
+        putchar(c);
+        col = col + 1;
+    }
+}
+            </code></pre>
+        </div>
+        <div class="box">
+            <div class="titre_box">
+                <h1>exemples :</h1>
+            </div>
+                <pre><code class="language-c">
+int main(void) {
+    triangle_2(2);     /* affiche :
+                         *
+                        **
+                                */
+    triangle_2(3);     /* affiche :
+                          *
+                         **
+                        ***
+                                */
+    triangle_2(4);     /* affiche :
+                           *
+                          **
+                         ***
+                        ****
+                                */
+    return 0;
+    }
+    
+                </code></pre>
+        </div>
+        <div class="box">
+            <div class="titre_box">
+                <h1>triangle_3 :</h1>
+            </div>
+            <pre><code class="language-c">
+#include &lt;stdio.h&gt;
+
+void repeter(int, char);
+void triangle_3(int);
+
+void triangle_3 (int n) {
+    int row = 0;
+    while(row < n) {
+        repeter(n-row-1, ' ');
+        repeter(2 * row + 1, '*');
+        putchar('\n');
+        row = row + 1;
+    }
+}
+void repeter (int n, char c) {
+    int col = 0;
+    while(col < n) {
+        putchar(c)
+        col = col + 1
+    }
+    
+}
+            </code></pre>
+        </div>
+        <div class="box">
+            <div class="titre_box">
+                <h1>exemples :</h1>
+            </div>
+                <pre><code class="language-c">
+int main(void) {
+    triangle_3(2);     /* affiche :
+                         * 
+                        ***
+                                    */
+    triangle_3(3);     /* affiche :
+                         * 
+                        ***
+                       *****
+                                    */
+    triangle_3(4);     /* affiche :
+                         * 
+                        ***
+                       *****
+                      *******
+                                    */
+    return 0;
+    }
+    
+                </code></pre>
+        </div>
+        <div class="box">
+            <div class="titre_box">
+                <h1>carre_3 :</h1>
+            </div>
+            <pre><code class="language-c">
+#include &lt;stdio.h&gt;
+
+void carre_3(int);
+
+void carre_3(int n) {
+    int row = 0, col;
+    while (row < n) {
+        int bh;
+        bh = (row == n-1) || (row == 0); // || veut dire 'ou' et && veut dire 'et'
+        col= 0;
+        while(col < n) {
+            int bv;
+            bv = (col == 0) || (col == n-1);
+            if(bh || bv) {
+                putchar('*');
+            }
+            else {
+                putchar(' ');
+            }
+            col = col + 1;
+        }
+        putchar('\n');
+        row = row + 1;
+    }
+}
+            </code></pre>
+        </div>
+        <div class="box">
+            <div class="titre_box">
+                <h1>exemples :</h1>
+            </div>
+                <pre><code class="language-c">
+int main(void) {
+    carre_3(2);     /* affiche :
+                        **
+                        **
+                                    */
+    carre_3(3);     /* affiche :
+                        ***
+                        * *
+                        ***
+                                    */
+    carre_3(4);     /* affiche :
+                        ****
+                        *  *
+                        *  *
+                        ****
+                                    */
+    return 0;
+    }
+    
+                </code></pre>
+        </div>
+        <div class="box">
+            <div class="titre_box">
+                <h1>carre_4 :</h1>
+            </div>
+            <pre><code class="language-c">
+#include &lt;stdio.h&gt;
+
+void carre_4(int n) {
+    int row = 0, col;
+    while (row < n) {
+        int bh;
+        bh = (0 == row) || ((n-1) == row);
+        col = 0;
+        while(col < n) {
+            int bv, d1, d2;
+            bv = (0 == row) || ((n-1) == row);
+            d1 = col == row;
+            d2 = col == (n-1-row);
+            if(bh) {
+                if(bv) {
+                    putchar('+');
+                }
+                else {
+                    putchar('-');
+                }
+            }
+            else {
+                if(bv) {
+                    putchar('|');
+                }
+                else {
+                    if(d1) {
+                        if(d2) {
+                            putchar('x');
+                        }
+                        else {
+                            putchar('\\') // "\" est utilisé pour des caractère spéciaux on doit donc mettre "\" devant pour lui dire qu'on veut l'écrire et pas faire un caractère spécial (comme ('\n'))
+                        }
+                    }
+                    else {
+                        if (d2) {
+                            putchar('/');
+                        }
+                        else {
+                            putchar(' ');
+                        }
+                    }
+                }   
+            }                      
+        }
+        col = col + 1;
+        putchar('\n');
+        row = row + 1;
+    }
+}
+            </code></pre>
+        </div>
+        <div class="box">
+            <div class="titre_box">
+                <h1>exemples :</h1>
+            </div>
+                <pre><code class="language-c">
+int main(void) {
+    carre_4(2);     /* affiche :
+                        ++
+                        ++
+                                    */
+    carre_4(3);     /* affiche :
+                        +-+
+                        |x|
+                        +-+
+                                    */
+    carre_4(4);     /* affiche :
+                        +--+
+                        |\/|
+                        |/\|
+                        +--+
+                                    */
+    return 0;
+    }
+    
+                </code></pre>
+        </div>
+        <div class="box">
+            <div class="titre_box">
+                <h1>carre_5 :</h1>
+            </div>
+            <pre><code class="language-c">
+#include &lt;stdio.h&gt;
+
+void carre_5(int);
+
+void carre_5(int n) {
+    int row = 0, col;
+    while (row < n) {
+        col = 0;
+        while (col < n) {
+            if((col + row)%2) {
+                putchar('+'),
+            }
+            else {
+                putchar('o');
+            }
+            col = col + 1;
+        }
+        putchar('\n');
+        row = row + 1;
+    }
+}
+            </code></pre>
+        </div>
+        <div class="box">
+            <div class="titre_box">
+                <h1>exemples :</h1>
+            </div>
+                <pre><code class="language-c">
+int main(void) {
+    carre_5(2);     /* affiche :
+                        o+
+                        +o
+                                    */
+    carre_5(3);     /* affiche :
+                        o+o
+                        +o+
+                        o+o
+                                    */
+    carre_5(4);     /* affiche :
+                        o+o+
+                        +o+o
+                        o+o+
+                        +o+o
+                                    */
+    return 0;
+    }
+    
+                </code></pre>
+        </div>
+        <div class="box">
+            <div class="titre_box">
+                <h1>roi :</h1>
+            </div>
+            <pre><code class="language-c">
+#include &lt;stdio.h&gt;
+
+void roi (int n) {
+    int row = 0, col;
+    while(row < n) {
+        col = 0;
+        while(col < n) {
+            printf("%d", lemax(col, row));
+            col = col + 1;
+        }
+        putchar('\n');
+        row = row + 1;
+    }
+}
+int lemax(int x, int y) {
+    if(x < y) {
+        return y;
+    }
+    return x;
+}
+            </code></pre>
+        </div>
+        <div class="box">
+            <div class="titre_box">
+                <h1>exemples :</h1>
+            </div>
+                <pre><code class="language-c">
+int main(void) {
+    carre_1(2);     /* affiche :
+                        01
+                        11
+                        */
+    carre_1(3);     /* affiche :
+                        012
+                        112
+                        222
+                        */
+    carre_1(4);     /* affiche :
+                        0123
+                        1123
+                        2223
+                        3333
+                        */
+    return 0;
+    }
+    
+                </code></pre>
+        </div>
+        </div>
+    </section>
+    <footer>
+
+    </footer>
+    <script src="prism.js"></script>
+</body>
+</html>
