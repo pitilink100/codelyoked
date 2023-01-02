@@ -52,7 +52,7 @@ void carre_1(int); // déclare la fonction carre_1 (int = valeure entière)
 /* on définit ensuite les fonctions */
 
 void carre_1(int n) { // définit la fonction en donnant n comme valeur entière
-    int row = 0; // initialise la variable row à 0
+    int row = 0; // row est la variable qui représente les lignes
     while (row < n) { // (on vérifie qu'on a pas dépassé la dernière ligne)
         aff_ligne_carre_1(n, row); // éxecute la fonction aff_ligne_carre_1 avec comme arguments n et row
         row = row + 1; // on ajoute 1 à la variable row
@@ -60,10 +60,10 @@ void carre_1(int n) { // définit la fonction en donnant n comme valeur entière
 }
 
 void aff_ligne_carre_1(int n, int c) { // définit la fonction en donnant n et c comme valeurs entières
-    int col = 0; 
+    int col = 0; // col est la variable qui représente les colonnes
     while (col < n) { // (on vérifie qu'on a pas dépassé la dernière colonne)
         printf("%d", c); // printf("%d", ...) permet d'afficher une valeur entière (ici c)
-        col = col + 1; // (on ajoute 1 à la variable col)
+        col = col + 1; // on ajoute 1 à la variable col
     }
     putchar('\n'); // (on retourne à la ligne)
 }
@@ -105,21 +105,21 @@ int main(void) {
 void aff_ligne_carre_2(int);
 void carre_2(int);
 
-void aff_ligne_carre_2(int n) {
-    int col = 0;
-    while (col < n){
-        putchar('0' + col); // putchar permet d'écrire un caractère mais la j'ai pas capté
-        col = col + 1;
-    }
-    putchar('\n');
-}
-    
 void carre_2(int n) {
     int row = 0;
     while (row < n) {
         aff_ligne_carre_2(n);
         row = row + 1;
     }
+}
+        
+void aff_ligne_carre_2(int n) {
+    int col = 0;
+    while (col < n){
+        putchar('0' + col); // peut être remplacé par printf("%d", col)
+        col = col + 1;
+    }
+    putchar('\n');
 }
             </code></pre>
         </div>
@@ -169,7 +169,7 @@ void triangle_1(int n) {
 void aff_ligne_carre_2(int n) {
     int col = 0;
     while (col < n) {
-        putchar('0' + col); // pas compris pour le moment
+        putchar('0' + col); 
         col = col + 1;
     }
     putchar('\n');
@@ -217,8 +217,8 @@ void triangle_2(int);
 void triangle_2(int n) {
     int row = 0;
     while(row < n) {
-        repeter(n-row-1, ' ');
-        repeter(row + 1, '*');
+        repeter(n-row-1, ' '); // n-row-1 peut aussi s'écrire n-(row+1)
+        repeter(row + 1, '*'); // row+1 représente le vrai numéro d'une ligne
         putchar('\n');
         row = row + 1;
     }
@@ -325,13 +325,13 @@ void carre_3(int);
 void carre_3(int n) {
     int row = 0, col;
     while (row < n) {
-        int bh;
-        bh = (row == n-1) || (row == 0); // || veut dire 'ou' et && veut dire 'et'
+        int bh; //bh veut dire bord horizontale
+        bh = (row == n-1) || (row == 0); // '||' veut dire 'ou' et '&&' veut dire 'et'
         col= 0;
         while(col < n) {
-            int bv;
-            bv = (col == 0) || (col == n-1);
-            if(bh || bv) {
+            int bv; // bv veut bord verticale
+            bv = (col == 0) || (col == n-1); // '==' permet de vérifier si 2 valeurs sont égales
+            if(bh || bv) { 
                 putchar('*');
             }
             else {
@@ -387,8 +387,8 @@ void carre_4(int n) {
         while(col < n) {
             int bv, d1, d2;
             bv = (0 == row) || ((n-1) == row);
-            d1 = col == row;
-            d2 = col == (n-1-row);
+            d1 = col == row; // condition pour d1(diagonale gauche) soit vraie
+            d2 = col == (n-1-row); // condition pour d2(diagonale droite) soit vraie
             if(bh) {
                 if(bv) {
                     putchar('+');
@@ -468,7 +468,7 @@ void carre_5(int n) {
     while (row < n) {
         col = 0;
         while (col < n) {
-            if((col + row)%2) {
+            if((col + row)%2) { // vérifie si col + row est divisible par 2 (% = division euclidienne)
                 putchar('+'),
             }
             else {
