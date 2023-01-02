@@ -52,20 +52,20 @@ void carre_1(int); // déclare la fonction carre_1 (int = valeure entière)
 /* on définit ensuite les fonctions */
 
 void carre_1(int n) { // définit la fonction en donnant n comme valeur entière
-    int row = 0; // row est la variable qui représente les lignes
-    while (row < n) { // (on vérifie qu'on a pas dépassé la dernière ligne)
+    int row = 0; // row est la variable qui représente les lignes (commence à 0)
+    while (row < n) { // (on vérifie qu'on n'a pas dépassé la dernière ligne)
         aff_ligne_carre_1(n, row); // éxecute la fonction aff_ligne_carre_1 avec comme arguments n et row
         row = row + 1; // on ajoute 1 à la variable row
     }
 }
 
 void aff_ligne_carre_1(int n, int c) { // définit la fonction en donnant n et c comme valeurs entières
-    int col = 0; // col est la variable qui représente les colonnes
-    while (col < n) { // (on vérifie qu'on a pas dépassé la dernière colonne)
+    int col = 0; // col est la variable qui représente les colonnes (commence à 1
+    while (col < n) { // (on vérifie qu'on n'a pas dépassé la dernière colonne)
         printf("%d", c); // printf("%d", ...) permet d'afficher une valeur entière (ici c)
         col = col + 1; // on ajoute 1 à la variable col
     }
-    putchar('\n'); // (on retourne à la ligne)
+    putchar('\n'); // (fait un retour à la ligne)
 }
             </code></pre>
         </div>
@@ -217,8 +217,8 @@ void triangle_2(int);
 void triangle_2(int n) {
     int row = 0;
     while(row < n) {
-        repeter(n-row-1, ' '); // n-row-1 peut aussi s'écrire n-(row+1)
-        repeter(row + 1, '*'); // row+1 représente le vrai numéro d'une ligne
+        repeter(n-row-1, ' '); // (n-row-1 peut aussi s'écrire n-(row+1))
+        repeter(row + 1, '*'); // (row+1 représente le vrai numéro d'une ligne)
         putchar('\n');
         row = row + 1;
     }
@@ -241,18 +241,18 @@ int main(void) {
     triangle_2(2);     /* affiche :
                          *
                         **
-                                */
+                                    */
     triangle_2(3);     /* affiche :
                           *
                          **
                         ***
-                                */
+                                    */
     triangle_2(4);     /* affiche :
                            *
                           **
                          ***
                         ****
-                                */
+                                    */
     return 0;
     }
     
@@ -325,7 +325,7 @@ void carre_3(int);
 void carre_3(int n) {
     int row = 0, col;
     while (row < n) {
-        int bh; //bh veut dire bord horizontale
+        int bh; // bh veut dire bord horizontale
         bh = (row == n-1) || (row == 0); // '||' veut dire 'ou' et '&&' veut dire 'et'
         col= 0;
         while(col < n) {
@@ -382,13 +382,13 @@ void carre_4(int n) {
     int row = 0, col;
     while (row < n) {
         int bh;
-        bh = (0 == row) || ((n-1) == row);
+        bh = (0 == row) || ((n-1) == row); // condition pour que bh soit vraie
         col = 0;
         while(col < n) {
             int bv, d1, d2;
-            bv = (0 == row) || ((n-1) == row);
-            d1 = col == row; // condition pour d1(diagonale gauche) soit vraie
-            d2 = col == (n-1-row); // condition pour d2(diagonale droite) soit vraie
+            bv = (0 == row) || ((n-1) == row); // condition pour que bv soit vraie
+            d1 = col == row; // condition pour que d1(diagonale gauche) soit vraie
+            d2 = col == (n-1-row); // condition pour que d2(diagonale droite) soit vraie
             if(bh) {
                 if(bv) {
                     putchar('+');
@@ -407,7 +407,7 @@ void carre_4(int n) {
                             putchar('x');
                         }
                         else {
-                            putchar('\\') // "\" est utilisé pour des caractère spéciaux on doit donc mettre "\" devant pour lui dire qu'on veut l'écrire et pas faire un caractère spécial (comme ('\n'))
+                            putchar('\\') // "\" est utilisé pour des caractères spéciaux on doit donc mettre "\" devant pour lui dire qu'on veut l'écrire et pas faire un caractère spécial (comme ('\n'))
                         }
                     }
                     else {
@@ -520,7 +520,7 @@ void roi (int n) {
     while(row < n) {
         col = 0;
         while(col < n) {
-            printf("%d", lemax(col, row));
+            printf("%d", lemax(col, row)); // écrit le max entre col et row 
             col = col + 1;
         }
         putchar('\n');
@@ -531,7 +531,7 @@ int lemax(int x, int y) {
     if(x < y) {
         return y;
     }
-    return x;
+    return x; // jsp s'il faut mettre un else 
 }
             </code></pre>
         </div>
@@ -544,18 +544,18 @@ int main(void) {
     carre_1(2);     /* affiche :
                         01
                         11
-                        */
+                                    */
     carre_1(3);     /* affiche :
                         012
                         112
                         222
-                        */
+                                    */
     carre_1(4);     /* affiche :
                         0123
                         1123
                         2223
                         3333
-                        */
+                                    */
     return 0;
     }
     
